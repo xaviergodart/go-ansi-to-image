@@ -1,4 +1,4 @@
-module github.com/pavelpatrin/go-ansi-to-image
+module github.com/xaviergodart/go-ansi-to-image
 
 go 1.17
 
