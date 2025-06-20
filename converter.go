@@ -2,6 +2,7 @@ package ansitoimage
 
 import (
 	"bytes"
+	"image"
 	"strings"
 	"unicode/utf8"
 
@@ -177,4 +178,9 @@ func (c *Converter) ToPNG() ([]byte, error) {
 	}
 
 	return buffer.Bytes(), nil
+}
+
+// Image returns the image from the converter.
+func (c *Converter) Image() image.Image {
+	return c.ggContext.Image()
 }
