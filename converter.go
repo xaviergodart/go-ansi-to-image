@@ -21,8 +21,8 @@ func NewConverter(config Config) (*Converter, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to load monospaced regular font")
 	}
-	advance, _ := monoRegularFontFace.GlyphAdvance('M')
-	bounds, _, _ := monoRegularFontFace.GlyphBounds('M')
+	advance, _ := monoRegularFontFace.GlyphAdvance('█')
+	bounds, _, _ := monoRegularFontFace.GlyphBounds('█')
 	converter.config.CharWidth = advance.Round()
 	converter.config.LineHeight = (bounds.Max.Y - bounds.Min.Y).Ceil()
 	converter.monoRegularFontFace = monoRegularFontFace
