@@ -21,9 +21,10 @@ func NewConverter(config Config) (*Converter, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to load monospaced regular font")
 	}
-	w, _ := monoRegularFontFace.GlyphAdvance('M')
-	converter.config.CharWidth = w.Round()
-	converter.config.LineHeight = monoRegularFontFace.Metrics().Height.Ceil()
+	advance, _ := monoRegularFontFace.GlyphAdvance('M')
+	bounds, _, _ := monoRegularFontFace.GlyphBounds('M')
+	converter.config.CharWidth = advance.Round()
+	converter.config.LineHeight = (bounds.Max.Y - bounds.Min.Y).Ceil()
 	converter.monoRegularFontFace = monoRegularFontFace
 
 	// Load monospaced bold font.
