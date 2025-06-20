@@ -184,3 +184,8 @@ func (c *Converter) ToPNG() ([]byte, error) {
 func (c *Converter) Image() image.Image {
 	return c.ggContext.Image()
 }
+
+// Config returns the current converter config.
+func (c *Converter) Config() Config {
+	return c.config
+}
